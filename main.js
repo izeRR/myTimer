@@ -2,8 +2,25 @@ window.addEventListener('load', () => {
     const hoursElement = document.getElementById("hours");
     const minutesElement = document.getElementById("minutes");
     const secondsElement = document.getElementById("seconds");
+
+    const generateClockDigits = function (amount) {
+        let output = "";
+        for (let i = 0; i < amount; i++){
+            output += `<p>${i}</p>`;
+        }
+        return output;
+    }
+
+    let test = generateClockDigits(35);
+    console.log(test);
+
+    hoursElement.insertAdjacentHTML('afterbegin', generateClockDigits(24));
+    minutesElement.insertAdjacentHTML('afterbegin', generateClockDigits(60));
+    secondsElement.insertAdjacentHTML('afterbegin', generateClockDigits(60));
+
     const clockElements = [hoursElement, minutesElement, secondsElement];
     const elementHeight = hoursElement.querySelector("p").scrollHeight;
+
     const currentTimeColor = "rgba(255, 255, 255, 0.4)";
     const digits = document.querySelectorAll("p");
 
